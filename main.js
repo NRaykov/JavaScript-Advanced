@@ -5,7 +5,7 @@ function jsengine(code) {
 jsengine('var a = 5');
 
 
-//Inline caching
+//******************************* Inline caching
 function findUser(user) {
     return `found ${user.firstName} ${user.lastName}`;
 }
@@ -36,7 +36,7 @@ const obj = { //allocate memory for an object ant it's values
 };
 
 
-//Call stack
+//******************************* Call stack
 function substact(num) {
     return num - 2;
 
@@ -51,7 +51,7 @@ function calculate() {
 calculate(); // Call stack stores functions and variables
 
 
-//Stack overflow
+//******************************* Stack overflow
 
 function inception() {
     inception();
@@ -76,4 +76,39 @@ var button = document.getElementById('button');
 button.addEventListener('click', () => {
     //....
 });
+
+//Memory leak by setInterval
+setInterval(() => {
+   //.....
+});
+
+
+//******************************* WEB API
+console.log('1');
+setTimeout(() => { // this moved away from the call stack send to Web API
+    console.log('2');
+
+}, 0);
+
+console.log('3');
+
+//The output will be: 1,3 and 2
+
+
+//******************************* Event Loop
+function achieveNirvana() {
+    console.log('You are enlightened');
+}
+function c() {
+    setTimeout(achieveNirvana, 3000);
+}
+function b() {
+    c();
+}
+function a() {
+    b();
+}
+
+a();
+
 

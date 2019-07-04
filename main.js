@@ -61,8 +61,19 @@ function inception() {
 
 
 //Memory Leak
-const arr = [];
-for(let i = 5; i > 1; i++) {
-    arr.push(i-1);
-}
+// const arr = [];
+// for(let i = 5; i > 1; i++) {
+//     arr.push(i-1);
+// }
+
+//Global variables
+var a = 5;
+var b = 7;
+var c = 8;
+
+//Event listeners can cause memory leak
+var button = document.getElementById('button');
+button.addEventListener('click', () => {
+    //....
+});
 

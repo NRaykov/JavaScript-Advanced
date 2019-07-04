@@ -59,3 +59,10 @@ function inception() {
 //inception();
 // VM141:1 Uncaught RangeError: Maximum call stack size exceeded
 
+
+//Memory Leak
+const arr = [];
+for(let i = 5; i > 1; i++) {
+    arr.push(i-1);
+}
+

@@ -1,14 +1,36 @@
-//******* Global Execution context
-// -- global object (window)
-// -- this keyword
+const vehicle = (function () {
+    const vehicle = {};
+    
+    vehicle.init = function (model) {
+        this.model = model;
+        return this;
+        
+    };
 
-function lexialScope() {
-    return console.log('This is Lexical Scope');
+
+    vehicle.move = function () {
+        return this.model + "... is moving";
+    };
+
+    return vehicle;
+})();
+
+let someVehicle = Object.create(vehicle).init('BMW');
+
+console.log(someVehicle);
+
+
+const car = (function(parent) {
+    const car = Object.create(parent);
+
+    return car;
+})(vehicle);
+
+
+let someCar = Object.create(car).init('Audi');
+
+console.log(someCar.move());
+
+for (let key in someCar) {
+    console.log(key);
 }
-
-let dymanimcScope = lexialScope()// Dynamic scope where function is called
-
-
-
-//******* HOISTING
-//Hoisting is the bechaviour of moving of the variables or function delarations to the top of their respective enviroments during compilation

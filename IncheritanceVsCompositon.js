@@ -70,3 +70,11 @@ const x73 = Object.create(Robot, {
 x73.drive();
 x73.wifi();
 
+
+//Composition Object Pattern
+const talker = (state) => ({
+    talk: (...msg) => {
+        return console.log(msg.join(' '));
+    }
+});
+

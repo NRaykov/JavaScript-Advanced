@@ -23,13 +23,35 @@ class Computer {
 
 }
 
-class Laptop extends Computer{
+class Laptop extends Computer {
 
-    constructor(videoCard, cpu, os, hardDrive){
-        super(videoCard, cpu, os, hardDrive);
+    // spread operator (...args) will collect all the arguments from parent constructor
+    constructor(...args){
+        super(...args);
     }
 
 }
 
 let laptop = new Laptop('nVidia', 'Intel i7', 'Windows', 'SSD');
 laptop.claculatePrice();
+
+
+class PC extends Computer {
+
+    constructor(...args) {
+        super(...args);
+    }
+
+}
+//Create new Object
+let pc = new PC('ATI', 'Intel i3', 'Linux', 'HDD');
+
+//Add new property with prototype inheritance
+pc = Object.defineProperties(Computer, {
+    monitor: {
+        value: (name) => {
+          return alert(name);
+        }
+    }
+});
+pc.monitor('LCD');

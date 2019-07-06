@@ -8,20 +8,22 @@ class Computer {
         this.price = price;
 
     }
+}
 
-    claculatePrice() {
+Computer.prototype.calculatePrice = (price) => {
 
-        this.price = 1000;
+    this.price = price;
 
-        if(this.videoCard || this.cpu || this.os || this.hardDrive) {
-            this.price  += 1000;
-        }
-
-        return console.log(this.price);
-
+    if(this.videoCard || this.cpu || this.os || this.hardDrive) {
+        this.price  += 1000;
     }
 
-}
+    return console.log("This is calc price: " + this.price);
+};
+
+
+
+///Laptop Object
 
 class Laptop extends Computer {
 
@@ -32,8 +34,19 @@ class Laptop extends Computer {
 
 }
 
+Laptop.prototype.soundCard = function(price) {
+    console.log("This is whole price: " + (this.price += price));
+};
+
+
 let laptop = new Laptop('nVidia', 'Intel i7', 'Windows', 'SSD');
-laptop.claculatePrice();
+
+//Is not a function ??????
+laptop.claculatePrice(2000);
+
+
+
+laptop.soundCard(300);
 
 
 class PC extends Computer {

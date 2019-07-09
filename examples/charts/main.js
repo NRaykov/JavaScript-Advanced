@@ -21,13 +21,13 @@ window.addEventListener('load', () => {
 
     }
 
-    const initValues = [25, 14, 8, 31, 15, 20];
+    const initValues = [25, 14, 8, 31, 15, 20]; // fetch data from server
     const chartData = new ChartData(initValues);
 
 
-    var ctx = document.getElementById('myChart');
+    let ctx = document.getElementById('myChart');
 
-    var myChart = new Chart(ctx, {
+    const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

@@ -1,35 +1,28 @@
 window.addEventListener('load', () => {
 
-   class ChartData {
+    class ChartData {
 
-       constructor(red, blue, yellow, green, purple, orange) {
-           this.red = red;
-           this.blue = blue;
-           this.yellow = yellow;
-           this.green = green;
-           this.purple = purple;
-           this.orange = orange;
-       }
-
-        getData() {
-           const dataArr = [this.red, this.blue, this.yellow, this.green, this.purple, this.orange];
-
-           dataArr.forEach((index)=> {
-               if(index > 30) {
-                   alert('Maximum Value Reached!');
-               }
-           });
-           return dataArr;
+        constructor(arrValues) {
+            this.arrValues = arrValues;
         }
 
-   }
+        authChartData() {
+            const dataArr = this.arrValues;
+            if (typeof dataArr === 'object') {
+                dataArr.forEach((index) => {
+                    if (index > 30)
+                        alert('Maximum Value Reached!');
+                });
+            } else {
+                alert('Insert an Array');
+            }
+            return dataArr;
+        }
 
-    const chartData = new ChartData(25,14,8,10,15, 20);
+    }
 
-
-
-
-
+    const initValues = [25, 14, 8, 31, 15, 20];
+    const chartData = new ChartData(initValues);
 
 
     var ctx = document.getElementById('myChart');
@@ -40,7 +33,7 @@ window.addEventListener('load', () => {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             datasets: [{
                 label: '# of Votes',
-                data: chartData.getData(),
+                data: chartData.authChartData(),
 
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

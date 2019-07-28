@@ -10,11 +10,11 @@ window.addEventListener('load', () => {
             const dataArr = this.arrValues;
             if (typeof dataArr === 'object') {
                 dataArr.forEach((index) => {
-                    if (index > 30)
-                        alert('Maximum Value Reached!');
+                    if (index > 30) {}
+                       // alert('Maximum Value Reached!');
                 });
             } else {
-                alert('Insert an Array');
+               // alert('Insert an Array');
             }
             return dataArr;
         }
